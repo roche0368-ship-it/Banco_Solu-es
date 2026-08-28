@@ -3,62 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>TI INFRA</title>
+<title>TI INFRA </title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:#0a0a0a;color:#e5e5e5;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;overscroll-behavior-y:contain}
-header{background:linear-gradient(135deg,#000,#450a0a);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #dc2626;position:sticky;top:0;z-index:10}
-.wrap{max-width:1100px;margin:auto;padding:14px;padding-bottom:100px}
-.card{background:#141414;border:1px solid #262626;border-radius:16px;padding:16px;margin-bottom:14px}
+body{margin:0;background:#0a0a0a;color:#e5e5e5;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+header{background:linear-gradient(135deg,#000,#1a0000 60%,#450a0a);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #dc2626;position:sticky;top:0;z-index:10}
+.wrap{max-width:1100px;margin:auto;padding:14px;padding-bottom:110px}
+.card{background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:18px;margin-bottom:14px}
 h2{margin:0 0 12px;font-size:13px;letter-spacing:.5px;text-transform:uppercase;color:#f87171;display:flex;gap:8px;align-items:center}
-label{font-size:10px;font-weight:800;text-transform:uppercase;color:#a3a3a3;display:block;margin-bottom:6px;letter-spacing:.5px}
+label{font-size:10px;font-weight:800;text-transform:uppercase;color:#a3a3a3;display:block;margin-bottom:6px}
 input,select,textarea{width:100%;background:#0a0a0a;border:1.5px solid #333;border-radius:10px;padding:14px;font-size:16px;color:#fff;-webkit-appearance:none}
 input:focus,select:focus,textarea:focus{outline:none;border-color:#dc2626}
-textarea{min-height:90px;font-size:16px}
+textarea{min-height:80px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.btn{border:0;border-radius:12px;padding:14px 18px;font-weight:800;cursor:pointer;display:inline-flex;gap:6px;align-items:center;justify-content:center;font-size:14px;min-height:48px;flex:1}
+.btn{border:0;border-radius:12px;padding:14px 18px;font-weight:800;cursor:pointer;display:flex;gap:6px;align-items:center;justify-content:center;font-size:14px;min-height:48px;flex:1}
 .btn:active{transform:scale(.97)}
 .blue{background:#dc2626;color:#fff}.green{background:#16a34a;color:#fff}.dark{background:#262626;color:#fff;border:1px solid #404040}.gray{background:#1f1f1f;color:#e5e5e5;border:1px solid #333}
 .sector{border:1px solid #2a2a2a;border-radius:14px;padding:12px;background:#0f0f0f}
 .sector h3{margin:0 0 8px;font-size:12px;display:flex;justify-content:space-between;color:#e5e5e5}
 .drop{border:2px dashed #444;border-radius:12px;padding:22px 14px;text-align:center;background:#0a0a0a;cursor:pointer;color:#a3a3a3;font-size:13px;min-height:70px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
-.drop:active{border-color:#dc2626;background:#1a0a0a}
+.drop:hover{border-color:#dc2626;background:#1a0a0a;color:#fff}
 .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
 .mitem{border:1px solid #2a2a2a;border-radius:10px;overflow:hidden;position:relative;background:#000}
-.mitem img,.mitem video{width:100%;height:100px;object-fit:cover;display:block;background:#000}
+.mitem img{width:100%;height:110px;object-fit:cover;display:block;background:#000}
 .mitem small{display:block;padding:4px 6px;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#a3a3a3;background:#0f0f0f}
 .del{position:absolute;top:4px;right:4px;background:#dc2626;color:#fff;border:0;border-radius:50%;width:28px;height:28px;cursor:pointer;font-weight:bold;display:flex;align-items:center;justify-content:center}
 .sigBox{border:1px solid #333;border-radius:14px;padding:14px;background:#0f0f0f;margin-bottom:12px}
 .sigCanvas{width:100%;height:200px;border:2px dashed #555;border-radius:12px;background:#fffff0;touch-action:none;display:block;cursor:crosshair}
 .sigActions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-.sigActions .btn{flex:1;min-width:110px}
 #lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
 #lightbox.show{display:flex}
-#lightbox img,#lightbox video{max-width:100vw;max-height:85vh;border-radius:12px}
+#lightbox img{max-width:100vw;max-height:85vh;border-radius:12px;border:2px solid #333}
 #sigModal{position:fixed;inset:0;background:#0a0a0a;display:none;flex-direction:column;z-index:10000;padding:12px}
 #sigModal.show{display:flex}
 #sigModal canvas{flex:1;border:2px solid #dc2626;border-radius:14px;background:#fffff0;touch-action:none}
 table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid #262626;text-align:left;font-size:12px;color:#d4d4d4}th{color:#a3a3a3;text-transform:uppercase;font-size:10px}
 .empty{padding:20px;text-align:center;color:#52525b;border:1px dashed #2a2a2a;border-radius:10px}
 .bottomBar{position:fixed;bottom:0;left:0;right:0;background:#141414;border-top:1px solid #262626;padding:10px 12px;display:flex;gap:8px;z-index:20;padding-bottom:calc(10px + env(safe-area-inset-bottom))}
-@media(max-width:800px){
-  .grid2{grid-template-columns:1fr}
-  .grid4{grid-template-columns:1fr 1fr}
-  .mgrid{grid-template-columns:1fr 1fr}
-  .wrap{padding:10px;padding-bottom:110px}
-  header{padding:12px 14px}
-  .sigBox{padding:12px}
-  .sigCanvas{height:220px}
-}
-@media(max-width:500px){
-  .grid4{grid-template-columns:1fr 1fr}
-}
+@media(max-width:800px){.grid2{grid-template-columns:1fr}.grid4{grid-template-columns:1fr 1fr}.mgrid{grid-template-columns:1fr 1fr}.wrap{padding:10px;padding-bottom:110px}}
 </style>
 </head>
 <body>
 <header>
-<div><b style="font-size:14px">TI INFRA </b><br><small style="color:#f87171;font-size:11px">Toque para assinar • Câmera direta</small></div>
+<div><b style="font-size:14px">TI INFRA </b><br><small style="color:#f87171;font-size:11px">App vermelho/preto • PDF branco profissional</small></div>
 <div><small id="hora" style="color:#a3a3a3;font-size:11px"></small></div>
 </header>
 <div class="wrap">
@@ -66,134 +54,90 @@ table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px s
 <div class="card" style="display:flex;gap:8px;flex-wrap:wrap">
 <button class="btn blue" onclick="novo()">＋ Nova</button>
 <button class="btn green" id="btnSalvar" onclick="salvar()">💾 Salvar</button>
-<button class="btn dark" onclick="verRelatorio()">👁️ Relatório</button>
+<button class="btn dark" onclick="verRelatorio()">📄 Gerar PDF Profissional</button>
 </div>
 
 <div id="statusMsg" class="card" style="display:none"></div>
 
 <div class="card">
-<h2>📋 Dados</h2>
+<h2>📋 Dados da instalação</h2>
 <div class="grid2">
-<div><label>Filial *</label><input id="filial" placeholder="F0052" inputmode="text"></div>
-<div><label>Responsável TI</label><input id="responsavel" placeholder="Seu nome"></div>
-<div><label>Gerente Regional</label><input id="gerente" placeholder="Nome do gerente"></div>
+<div><label>Filial *</label><input id="filial" placeholder="F0052"></div>
+<div><label>Responsável técnico (TI)</label><input id="responsavel" placeholder="Seu nome - TI"></div>
+<div><label>Gerente Regional (validação)</label><input id="gerente" placeholder="Nome do gerente que valida"></div>
 <div><label>Status</label><select id="status"><option>Em andamento</option><option>Concluída</option><option>Planejamento</option></select></div>
-<div><label>Início</label><input id="inicio" type="date"></div>
-<div><label>Fim</label><input id="fim" type="date"></div>
+<div><label>Data início</label><input id="inicio" type="date"></div>
+<div><label>Data conclusão</label><input id="fim" type="date"></div>
 </div>
 </div>
 
 <div class="card">
-<h2>🔧 Infra - toque para alterar</h2>
+<h2>🔧 Infraestrutura</h2>
 <div class="grid4">
-<div><label>Rede</label><input id="rede" type="number" inputmode="numeric" value="0"></div>
-<div><label>Energia</label><input id="energia" type="number" inputmode="numeric" value="0"></div>
+<div><label>Pontos de rede</label><input id="rede" type="number" inputmode="numeric" value="0"></div>
+<div><label>Pontos de energia</label><input id="energia" type="number" inputmode="numeric" value="0"></div>
 <div><label>Switches</label><input id="switches" type="number" inputmode="numeric" value="0"></div>
 <div><label>Nobreaks</label><input id="nobreaks" type="number" inputmode="numeric" value="0"></div>
 <div><label>Roteadores</label><input id="roteadores" type="number" inputmode="numeric" value="0"></div>
 <div><label>Impressoras</label><input id="impressoras" type="number" inputmode="numeric" value="0"></div>
-<div><label>Rack</label><select id="rack"><option>Não</option><option>Sim</option></select></div>
-<div><label>Caixa</label><input id="caixas" type="number" inputmode="numeric" value="0"></div>
-<div><label>Vendas</label><input id="vendas" type="number" inputmode="numeric" value="0"></div>
-<div><label>Crediário</label><input id="crediario" type="number" inputmode="numeric" value="0"></div>
-<div><label>Cobrança</label><input id="cobranca" type="number" inputmode="numeric" value="0"></div>
+<div><label>Rack/Hack</label><select id="rack"><option>Não</option><option>Sim</option></select></div>
+<div><label>Qtd Caixa</label><input id="caixas" type="number" inputmode="numeric" value="0"></div>
+<div><label>Qtd Vendas</label><input id="vendas" type="number" inputmode="numeric" value="0"></div>
+<div><label>Qtd Crediário</label><input id="crediario" type="number" inputmode="numeric" value="0"></div>
+<div><label>Qtd Cobrança</label><input id="cobranca" type="number" inputmode="numeric" value="0"></div>
 </div>
-<div style="margin-top:12px"><label>Obs</label><textarea id="obs" placeholder="Testes, organização..."></textarea></div>
+<div style="margin-top:12px"><label>Observações técnicas / testes realizados</label><textarea id="obs" placeholder="Descreva organização, testes, identificação de cabos, pendências..."></textarea></div>
 </div>
 
 <div class="card">
-<h2>📸 Fotos e vídeos - use a câmera do celular</h2>
+<h2>📸 Fotos por setor</h2>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-
-<div class="sector">
-<h3>🗄️ Geral <span id="c-geral" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3>
-<div class="drop" onclick="document.getElementById('f-geral').click()">📷 Tirar foto / 📹 Vídeo<br><small>Toque aqui</small></div>
-<input type="file" id="f-geral" multiple accept="image/*,video/*" capture="environment" style="display:none" onchange="addFiles(this.files,'geral')">
-<div class="mgrid" id="g-geral"></div>
-</div>
-
-<div class="sector">
-<h3>💵 Caixa <span id="c-caixa" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3>
-<div class="drop" onclick="document.getElementById('f-caixa').click()">📷 Caixa</div>
-<input type="file" id="f-caixa" multiple accept="image/*,video/*" capture="environment" style="display:none" onchange="addFiles(this.files,'caixa')">
-<div class="mgrid" id="g-caixa"></div>
-</div>
-
-<div class="sector">
-<h3>🛒 Vendas <span id="c-vendas" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3>
-<div class="drop" onclick="document.getElementById('f-vendas').click()">📷 Vendas</div>
-<input type="file" id="f-vendas" multiple accept="image/*,video/*" capture="environment" style="display:none" onchange="addFiles(this.files,'vendas')">
-<div class="mgrid" id="g-vendas"></div>
-</div>
-
-<div class="sector">
-<h3>💳 Crediário <span id="c-crediario" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3>
-<div class="drop" onclick="document.getElementById('f-crediario').click()">📷 Crediário</div>
-<input type="file" id="f-crediario" multiple accept="image/*,video/*" capture="environment" style="display:none" onchange="addFiles(this.files,'crediario')">
-<div class="mgrid" id="g-crediario"></div>
-</div>
-
-<div class="sector">
-<h3>💰 Cobrança <span id="c-cobranca" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3>
-<div class="drop" onclick="document.getElementById('f-cobranca').click()">📷 Cobrança</div>
-<input type="file" id="f-cobranca" multiple accept="image/*,video/*" capture="environment" style="display:none" onchange="addFiles(this.files,'cobranca')">
-<div class="mgrid" id="g-cobranca"></div>
-</div>
-
-<div class="sector">
-<h3>✅ Testes <span id="c-testes" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3>
-<div class="drop" onclick="document.getElementById('f-testes').click()">🎬 Vídeo funcionando</div>
-<input type="file" id="f-testes" multiple accept="image/*,video/*" capture="environment" style="display:none" onchange="addFiles(this.files,'testes')">
-<div class="mgrid" id="g-testes"></div>
-</div>
-
+<div class="sector"><h3>🗄️ Geral / Rack <span id="c-geral" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3><div class="drop" onclick="document.getElementById('f-geral').click()">📷 Foto Geral / Rack</div><input type="file" id="f-geral" multiple accept="image/*" capture="environment" style="display:none" onchange="addFiles(this.files,'geral')"><div class="mgrid" id="g-geral"></div></div>
+<div class="sector"><h3>💵 Caixa <span id="c-caixa" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3><div class="drop" onclick="document.getElementById('f-caixa').click()">📷 Foto Caixa</div><input type="file" id="f-caixa" multiple accept="image/*" capture="environment" style="display:none" onchange="addFiles(this.files,'caixa')"><div class="mgrid" id="g-caixa"></div></div>
+<div class="sector"><h3>🛒 Vendas <span id="c-vendas" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3><div class="drop" onclick="document.getElementById('f-vendas').click()">📷 Foto Vendas</div><input type="file" id="f-vendas" multiple accept="image/*" capture="environment" style="display:none" onchange="addFiles(this.files,'vendas')"><div class="mgrid" id="g-vendas"></div></div>
+<div class="sector"><h3>💳 Crediário <span id="c-crediario" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3><div class="drop" onclick="document.getElementById('f-crediario').click()">📷 Foto Crediário</div><input type="file" id="f-crediario" multiple accept="image/*" capture="environment" style="display:none" onchange="addFiles(this.files,'crediario')"><div class="mgrid" id="g-crediario"></div></div>
+<div class="sector"><h3>💰 Cobrança <span id="c-cobranca" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3><div class="drop" onclick="document.getElementById('f-cobranca').click()">📷 Foto Cobrança</div><input type="file" id="f-cobranca" multiple accept="image/*" capture="environment" style="display:none" onchange="addFiles(this.files,'cobranca')"><div class="mgrid" id="g-cobranca"></div></div>
+<div class="sector"><h3>✅ Testes <span id="c-testes" style="background:#dc2626;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px">0</span></h3><div class="drop" onclick="document.getElementById('f-testes').click()">📷 Foto Testes / Funcionando</div><input type="file" id="f-testes" multiple accept="image/*" capture="environment" style="display:none" onchange="addFiles(this.files,'testes')"><div class="mgrid" id="g-testes"></div></div>
 </div>
 </div>
 
 <div class="card">
-<h2>✍️ Assinaturas - toque para assinar com dedo</h2>
-
+<h2>✍️ Assinaturas</h2>
 <div class="sigBox">
-<label style="color:#f87171">1 - TI - Responsável Técnico • Toque no quadro para assinar em tela cheia</label>
+<label style="color:#f87171">1 - TI - Responsável Técnico</label>
 <canvas id="sigCanvas1" class="sigCanvas" width="800" height="300"></canvas>
 <div class="sigActions">
 <button class="btn gray" onclick="limparSig(1)">🧹 Limpar</button>
-<button class="btn blue" onclick="abrirModalSig(1)">✍️ Assinar em tela cheia</button>
+<button class="btn blue" onclick="abrirModalSig(1)">✍️ Tela cheia</button>
 <button class="btn green" onclick="confirmarSig(1)">💾 Confirmar TI</button>
 </div>
-<span id="sigInfo1" style="font-size:11px;color:#a3a3a3;display:block;margin-top:8px">Toque no quadro e desenhe com o dedo</span>
+<span id="sigInfo1" style="font-size:11px;color:#a3a3a3;display:block;margin-top:8px">Toque para assinar com o dedo</span>
 </div>
-
 <div class="sigBox" style="border-color:#7f1d1d">
-<label style="color:#fca5a5">2 - Gerente Regional - Validação • Assinatura no celular</label>
+<label style="color:#fca5a5">2 - Gerente Regional - Validação</label>
 <canvas id="sigCanvas2" class="sigCanvas" width="800" height="300"></canvas>
 <div class="sigActions">
 <button class="btn gray" onclick="limparSig(2)">🧹 Limpar</button>
-<button class="btn blue" style="background:#7f1d1d" onclick="abrirModalSig(2)">✍️ Assinar Gerente (tela cheia)</button>
+<button class="btn blue" style="background:#7f1d1d" onclick="abrirModalSig(2)">✍️ Tela cheia Gerente</button>
 <button class="btn green" onclick="confirmarSig(2)">💾 Confirmar Gerente</button>
 </div>
 <span id="sigInfo2" style="font-size:11px;color:#a3a3a3;display:block;margin-top:8px">Entregue o celular para o gerente assinar</span>
 </div>
-
 </div>
 
 <div class="card">
-<h2>📚 Salvas no celular</h2>
+<h2>📚 Salvas</h2>
 <div id="lista"></div>
-<div style="margin-top:10px;display:flex;gap:8px">
-<button class="btn dark" onclick="baixarHTML()" style="flex:1">⬇️ Baixar HTML completo</button>
-</div>
 </div>
 
 </div>
 
 <div class="bottomBar">
 <button class="btn green" onclick="salvar()">💾 Salvar</button>
-<button class="btn blue" onclick="verRelatorio()">👁️ Relatório</button>
+<button class="btn blue" onclick="verRelatorio()">📄 PDF Profissional</button>
 </div>
 
 <div id="lightbox" onclick="this.classList.remove('show')"><div id="lbContent"></div></div>
-
 <div id="sigModal">
 <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 4px">
 <b id="sigModalTitle" style="color:#f87171">Assinatura</b>
@@ -204,22 +148,20 @@ table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px s
 <button class="btn gray" onclick="limparModalSig()">🧹 Limpar</button>
 <button class="btn green" onclick="salvarModalSig()" style="flex:2">💾 Confirmar assinatura</button>
 </div>
-<small style="color:#a3a3a3;text-align:center;display:block">Desenhe com o dedo em tela cheia • Vire o celular na horizontal se precisar</small>
 </div>
 
 <script>
 document.getElementById('hora').textContent=new Date().toLocaleString('pt-BR');
 let setores={geral:[],caixa:[],vendas:[],crediario:[],cobranca:[],testes:[]};
-let assinatura1=null, assinatura2=null; let ultimoId=null; let db=null;
-let modalSigNum=null;
+let assinatura1=null, assinatura2=null; let ultimoId=null; let db=null; let modalSigNum=null;
 function msg(t,ok=true){const el=document.getElementById('statusMsg'); el.style.display='block'; el.style.background=ok?'#14532d':'#450a0a'; el.style.border='1px solid '+(ok?'#16a34a':'#dc2626'); el.style.color=ok?'#bbf7d0':'#fecaca'; el.innerHTML=t; window.scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>el.style.display='none',5000);}
 function abrirDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open('tiInfraFinalV3',1); r.onupgradeneeded=e=>{const d=e.target.result; if(!d.objectStoreNames.contains('regs')) d.createObjectStore('regs',{keyPath:'id'});}; r.onsuccess=()=>{db=r.result; resolve(db);}; r.onerror=()=>reject(r.error);});}
 abrirDB().then(()=>listar());
-
 function addFiles(fileList,setor){
   if(!fileList.length)return;
   let loaded=0;
   for(const f of fileList){
+    if(!f.type.startsWith('image/')) continue;
     const reader=new FileReader();
     reader.onload=e=>{
       setores[setor].push({id:Date.now()+Math.random(),name:f.name,type:f.type,data:e.target.result});
@@ -228,44 +170,32 @@ function addFiles(fileList,setor){
     reader.readAsDataURL(f);
   }
   setTimeout(()=>renderSetor(setor),700);
-  if(fileList.length>0) msg(`📸 ${fileList.length} arquivo(s) adicionado(s) em ${setor}`);
+  if(fileList.length>0) msg(`📸 ${fileList.length} foto(s) em ${setor}`);
 }
 function renderSetor(s){
   document.getElementById('c-'+s).textContent=setores[s].length;
   const grid=document.getElementById('g-'+s);
-  grid.innerHTML=setores[s].map(m=>{
-    const thumb=m.type.startsWith('video')?`<video src="${m.data}" muted playsinline></video>`:`<img src="${m.data}">`;
-    return `<div class="mitem" onclick="verMidia('${s}','${m.id}')">${thumb}<small>${m.name.slice(0,14)}</small><button class="del" onclick="event.stopPropagation();remover('${s}','${m.id}')">x</button></div>`;
-  }).join('')||'<div class="empty">Toque em 📁 para anexar</div>';
+  grid.innerHTML=setores[s].map(m=>`<div class="mitem" onclick="verMidia('${s}','${m.id}')"><img src="${m.data}"><small>${m.name.slice(0,14)}</small><button class="del" onclick="event.stopPropagation();remover('${s}','${m.id}')">x</button></div>`).join('')||'<div class="empty">Toque em 📷</div>';
 }
 function remover(s,id){setores[s]=setores[s].filter(x=>String(x.id)!==String(id)); renderSetor(s);}
-function verMidia(s,id){const it=setores[s].find(x=>String(x.id)===String(id)); if(!it)return; const lb=document.getElementById('lbContent'); if(it.type.startsWith('video')) lb.innerHTML=`<video controls autoplay playsinline src="${it.data}" style="max-width:100vw;max-height:80vh"></video>`; else lb.innerHTML=`<img src="${it.data}" style="max-width:100vw;max-height:80vh">`; document.getElementById('lightbox').classList.add('show');}
+function verMidia(s,id){const it=setores[s].find(x=>String(x.id)===String(id)); if(!it)return; document.getElementById('lbContent').innerHTML=`<img src="${it.data}" style="max-width:100vw;max-height:85vh">`; document.getElementById('lightbox').classList.add('show');}
 function renderTodos(){Object.keys(setores).forEach(renderSetor);}
-
-// Canvas setup - mobile friendly
 function setupCanvas(id){
   const canvas=document.getElementById('sigCanvas'+id);
   const ctx=canvas.getContext('2d');
   ctx.lineWidth=3.5; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.strokeStyle='#000';
   let desenhando=false, px=0, py=0;
   function getPos(e){const r=canvas.getBoundingClientRect(); const t=e.touches?e.touches[0]:e; const sx=canvas.width/r.width; const sy=canvas.height/r.height; return {x:(t.clientX-r.left)*sx, y:(t.clientY-r.top)*sy};}
-  function start(e){e.preventDefault(); desenhando=true; const p=getPos(e); px=p.x; py=p.y;}
-  function move(e){e.preventDefault(); if(!desenhando)return; const p=getPos(e); ctx.beginPath(); ctx.moveTo(px,py); ctx.lineTo(p.x,p.y); ctx.stroke(); px=p.x; py=p.y;}
-  function end(e){if(e) e.preventDefault(); desenhando=false;}
-  canvas.addEventListener('touchstart',start,{passive:false});
-  canvas.addEventListener('touchmove',move,{passive:false});
-  canvas.addEventListener('touchend',end,{passive:false});
+  canvas.addEventListener('touchstart',e=>{e.preventDefault(); desenhando=true; const p=getPos(e); px=p.x; py=p.y;},{passive:false});
+  canvas.addEventListener('touchmove',e=>{e.preventDefault(); if(!desenhando)return; const p=getPos(e); ctx.beginPath(); ctx.moveTo(px,py); ctx.lineTo(p.x,p.y); ctx.stroke(); px=p.x; py=p.y;},{passive:false});
+  canvas.addEventListener('touchend',e=>{e.preventDefault(); desenhando=false;},{passive:false});
   canvas.addEventListener('mousedown',e=>{desenhando=true; const p=getPos(e); px=p.x; py=p.y;});
   canvas.addEventListener('mousemove',e=>{if(!desenhando)return; const p=getPos(e); ctx.beginPath(); ctx.moveTo(px,py); ctx.lineTo(p.x,p.y); ctx.stroke(); px=p.x; py=p.y;});
   window.addEventListener('mouseup',()=>desenhando=false);
-  // Ao tocar já abre modal em tela cheia no celular
   canvas.addEventListener('click',()=>{ if(window.innerWidth<800) abrirModalSig(id); });
   return {canvas, ctx};
 }
-const sig1=setupCanvas(1);
-const sig2=setupCanvas(2);
-
-// Modal assinatura tela cheia - ideal para celular
+const sig1=setupCanvas(1); const sig2=setupCanvas(2);
 const modalCanvas=document.getElementById('sigModalCanvas');
 const modalCtx=modalCanvas.getContext('2d');
 modalCtx.lineWidth=4; modalCtx.lineCap='round'; modalCtx.lineJoin='round'; modalCtx.strokeStyle='#000';
@@ -277,109 +207,229 @@ modalCanvas.addEventListener('touchend',e=>{e.preventDefault(); modalDesenhando=
 modalCanvas.addEventListener('mousedown',e=>{modalDesenhando=true; const p=mGetPos(e); mpx=p.x; mpy=p.y;});
 modalCanvas.addEventListener('mousemove',e=>{if(!modalDesenhando)return; const p=mGetPos(e); modalCtx.beginPath(); modalCtx.moveTo(mpx,mpy); modalCtx.lineTo(p.x,p.y); modalCtx.stroke(); mpx=p.x; mpy=p.y;});
 window.addEventListener('mouseup',()=>modalDesenhando=false);
-
-function abrirModalSig(n){
-  modalSigNum=n;
-  document.getElementById('sigModalTitle').textContent=n===1?'Assinatura TI - Responsável':'Assinatura Gerente Regional';
-  document.getElementById('sigModal').classList.add('show');
-  modalCtx.clearRect(0,0,modalCanvas.width,modalCanvas.height);
-  // copia assinatura existente se houver
-  const src = n===1?sig1.canvas:sig2.canvas;
-  if(src){ modalCtx.drawImage(src,0,0,modalCanvas.width,modalCanvas.height); }
-}
+function abrirModalSig(n){modalSigNum=n; document.getElementById('sigModalTitle').textContent=n===1?'Assinatura TI':'Assinatura Gerente Regional'; document.getElementById('sigModal').classList.add('show'); modalCtx.clearRect(0,0,modalCanvas.width,modalCanvas.height); const src=n===1?sig1.canvas:sig2.canvas; if(src) modalCtx.drawImage(src,0,0,modalCanvas.width,modalCanvas.height);}
 function fecharModalSig(){document.getElementById('sigModal').classList.remove('show');}
 function limparModalSig(){modalCtx.clearRect(0,0,modalCanvas.width,modalCanvas.height);}
-function salvarModalSig(){
-  const blank=document.createElement('canvas'); blank.width=modalCanvas.width; blank.height=modalCanvas.height;
-  if(modalCanvas.toDataURL()===blank.toDataURL()){msg('Desenhe antes!',false); return;}
-  const data=modalCanvas.toDataURL('image/png');
-  if(modalSigNum===1){
-    sig1.ctx.clearRect(0,0,sig1.canvas.width,sig1.canvas.height);
-    const img=new Image(); img.onload=()=>{sig1.ctx.drawImage(img,0,0,sig1.canvas.width,sig1.canvas.height); confirmarSig(1);}; img.src=data;
-  } else {
-    sig2.ctx.clearRect(0,0,sig2.canvas.width,sig2.canvas.height);
-    const img=new Image(); img.onload=()=>{sig2.ctx.drawImage(img,0,0,sig2.canvas.width,sig2.canvas.height); confirmarSig(2);}; img.src=data;
-  }
-  fecharModalSig();
-}
-
-function limparSig(n){
-  const {canvas, ctx}= n===1?sig1:sig2;
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  if(n===1){assinatura1=null; document.getElementById('sigInfo1').textContent='Limpa - toque para assinar';}
-  else {assinatura2=null; document.getElementById('sigInfo2').textContent='Limpa - toque para assinar';}
-}
-function confirmarSig(n){
-  const {canvas}= n===1?sig1:sig2;
-  const blank=document.createElement('canvas'); blank.width=canvas.width; blank.height=canvas.height;
-  if(canvas.toDataURL()===blank.toDataURL()){msg('Desenhe a assinatura '+n+' antes!',false); return;}
-  const data=canvas.toDataURL('image/png');
-  if(n===1){assinatura1=data; document.getElementById('sigInfo1').textContent='✅ TI confirmada!'; document.getElementById('sigInfo1').style.color='#4ade80';}
-  else {assinatura2=data; document.getElementById('sigInfo2').textContent='✅ Gerente validado!'; document.getElementById('sigInfo2').style.color='#fca5a5';}
-  msg('✅ Assinatura '+n+' confirmada!');
-}
-
-async function salvar(){
-  const filial=document.getElementById('filial').value.trim(); if(!filial){alert('Digite a filial!'); document.getElementById('filial').focus(); return;}
-  if(!db) await abrirDB();
-  const total=Object.values(setores).flat().length;
-  const id=ultimoId||Date.now().toString();
-  const reg={
-    id, filial, responsavel:document.getElementById('responsavel').value, gerente:document.getElementById('gerente').value,
-    status:document.getElementById('status').value, inicio:document.getElementById('inicio').value, fim:document.getElementById('fim').value,
-    rede:document.getElementById('rede').value, energia:document.getElementById('energia').value,
-    switches:document.getElementById('switches').value, nobreaks:document.getElementById('nobreaks').value,
-    roteadores:document.getElementById('roteadores').value, impressoras:document.getElementById('impressoras').value,
-    rack:document.getElementById('rack').value,
-    caixas:document.getElementById('caixas').value, vendas:document.getElementById('vendas').value, crediario:document.getElementById('crediario').value, cobranca:document.getElementById('cobranca').value,
-    obs:document.getElementById('obs').value, setores:JSON.parse(JSON.stringify(setores)), total, assinatura1, assinatura2, criado:new Date().toLocaleString('pt-BR')
-  };
-  const tx=db.transaction('regs','readwrite'); tx.objectStore('regs').put(reg);
-  tx.oncomplete=()=>{ultimoId=id; msg(`✅ ${filial} SALVA! ${total} arquivo(s) • TI:${assinatura1?'OK':'falta'} • Ger:${assinatura2?'OK':'falta'}`); listar();};
-  tx.onerror=()=>msg('Erro ao salvar',false);
-}
-function novo(){ if(!confirm('Nova instalação? Isso limpa tudo.'))return; ['filial','responsavel','gerente','inicio','fim','obs'].forEach(id=>{const el=document.getElementById(id); if(el) el.value='';}); ['rede','energia','switches','nobreaks','roteadores','impressoras','caixas','vendas','crediario','cobranca'].forEach(id=>{document.getElementById(id).value='0';}); document.getElementById('status').value='Em andamento'; document.getElementById('rack').value='Não'; setores={geral:[],caixa:[],vendas:[],crediario:[],cobranca:[],testes:[]}; renderTodos(); limparSig(1); limparSig(2); ultimoId=null; window.scrollTo({top:0,behavior:'smooth'});}
-async function listar(){ if(!db) await abrirDB(); const tx=db.transaction('regs','readonly'); const req=tx.objectStore('regs').getAll(); req.onsuccess=()=>{const regs=req.result||[]; if(!regs.length){document.getElementById('lista').innerHTML='<div class="empty">Nenhuma salva neste celular</div>';return;} document.getElementById('lista').innerHTML=`<table><thead><tr><th>Filial</th><th>Arquivos</th><th>Ass.</th><th>Ações</th></tr></thead><tbody>${regs.reverse().map(r=>`<tr><td><b style="color:#f87171">${r.filial}</b><br><small>${r.criado}</small></td><td>${r.total}</td><td>TI:${r.assinatura1?'✅':'❌'}<br>Ger:${r.assinatura2?'✅':'❌'}</td><td><button class="btn gray" onclick="carregar('${r.id}')" style="padding:8px">Abrir</button><br><button class="btn dark" onclick="verRelatorioId('${r.id}')" style="padding:8px;margin-top:4px">👁️ Ver</button></td></tr>`).join('')}</tbody></table>`;};}
-async function carregar(id){ if(!db) await abrirDB(); const tx=db.transaction('regs','readonly'); const req=tx.objectStore('regs').get(id); req.onsuccess=()=>{const r=req.result; if(!r)return; ultimoId=r.id; document.getElementById('filial').value=r.filial||''; document.getElementById('responsavel').value=r.responsavel||''; document.getElementById('gerente').value=r.gerente||''; document.getElementById('status').value=r.status||'Em andamento'; document.getElementById('inicio').value=r.inicio||''; document.getElementById('fim').value=r.fim||''; document.getElementById('rede').value=r.rede||0; document.getElementById('energia').value=r.energia||0; document.getElementById('switches').value=r.switches||0; document.getElementById('nobreaks').value=r.nobreaks||0; document.getElementById('roteadores').value=r.roteadores||0; document.getElementById('impressoras').value=r.impressoras||0; document.getElementById('rack').value=r.rack||'Não'; document.getElementById('caixas').value=r.caixas||0; document.getElementById('vendas').value=r.vendas||0; document.getElementById('crediario').value=r.crediario||0; document.getElementById('cobranca').value=r.cobranca||0; document.getElementById('obs').value=r.obs||''; setores=r.setores||{geral:[],caixa:[],vendas:[],crediario:[],cobranca:[],testes:[]}; assinatura1=r.assinatura1||null; assinatura2=r.assinatura2||null; renderTodos(); if(assinatura1){const img=new Image(); img.onload=()=>{sig1.ctx.clearRect(0,0,sig1.canvas.width,sig1.canvas.height); sig1.ctx.drawImage(img,0,0,sig1.canvas.width,sig1.canvas.height);}; img.src=assinatura1; document.getElementById('sigInfo1').textContent='✅ Carregada';} if(assinatura2){const img=new Image(); img.onload=()=>{sig2.ctx.clearRect(0,0,sig2.canvas.width,sig2.canvas.height); sig2.ctx.drawImage(img,0,0,sig2.canvas.width,sig2.canvas.height);}; img.src=assinatura2; document.getElementById('sigInfo2').textContent='✅ Carregada';} window.scrollTo({top:0,behavior:'smooth'}); msg('Carregada '+r.filial);};}
+function salvarModalSig(){const blank=document.createElement('canvas'); blank.width=modalCanvas.width; blank.height=modalCanvas.height; if(modalCanvas.toDataURL()===blank.toDataURL()){msg('Desenhe antes!',false); return;} const data=modalCanvas.toDataURL('image/png'); if(modalSigNum===1){sig1.ctx.clearRect(0,0,sig1.canvas.width,sig1.canvas.height); const img=new Image(); img.onload=()=>{sig1.ctx.drawImage(img,0,0,sig1.canvas.width,sig1.canvas.height); confirmarSig(1);}; img.src=data;} else {sig2.ctx.clearRect(0,0,sig2.canvas.width,sig2.canvas.height); const img=new Image(); img.onload=()=>{sig2.ctx.drawImage(img,0,0,sig2.canvas.width,sig2.canvas.height); confirmarSig(2);}; img.src=data;} fecharModalSig();}
+function limparSig(n){const {canvas, ctx}= n===1?sig1:sig2; ctx.clearRect(0,0,canvas.width,canvas.height); if(n===1){assinatura1=null; document.getElementById('sigInfo1').textContent='Limpa';} else {assinatura2=null; document.getElementById('sigInfo2').textContent='Limpa';}}
+function confirmarSig(n){const {canvas}= n===1?sig1:sig2; const blank=document.createElement('canvas'); blank.width=canvas.width; blank.height=canvas.height; if(canvas.toDataURL()===blank.toDataURL()){msg('Desenhe a assinatura '+n+' antes!',false); return;} const data=canvas.toDataURL('image/png'); if(n===1){assinatura1=data; document.getElementById('sigInfo1').textContent='✅ TI confirmada!'; document.getElementById('sigInfo1').style.color='#4ade80';} else {assinatura2=data; document.getElementById('sigInfo2').textContent='✅ Gerente validado!'; document.getElementById('sigInfo2').style.color='#fca5a5';} msg('✅ Assinatura '+n+' confirmada!');}
+async function salvar(){const filial=document.getElementById('filial').value.trim(); if(!filial){alert('Digite a filial!'); document.getElementById('filial').focus(); return;} if(!db) await abrirDB(); const total=Object.values(setores).flat().length; const id=ultimoId||Date.now().toString(); const reg={id, filial, responsavel:document.getElementById('responsavel').value, gerente:document.getElementById('gerente').value, status:document.getElementById('status').value, inicio:document.getElementById('inicio').value, fim:document.getElementById('fim').value, rede:document.getElementById('rede').value, energia:document.getElementById('energia').value, switches:document.getElementById('switches').value, nobreaks:document.getElementById('nobreaks').value, roteadores:document.getElementById('roteadores').value, impressoras:document.getElementById('impressoras').value, rack:document.getElementById('rack').value, caixas:document.getElementById('caixas').value, vendas:document.getElementById('vendas').value, crediario:document.getElementById('crediario').value, cobranca:document.getElementById('cobranca').value, obs:document.getElementById('obs').value, setores:JSON.parse(JSON.stringify(setores)), total, assinatura1, assinatura2, criado:new Date().toLocaleString('pt-BR')}; const tx=db.transaction('regs','readwrite'); tx.objectStore('regs').put(reg); tx.oncomplete=()=>{ultimoId=id; msg(`✅ ${filial} SALVA! ${total} foto(s) • TI:${assinatura1?'OK':'falta'} • Ger:${assinatura2?'OK':'falta'}`); listar();}; tx.onerror=()=>msg('Erro ao salvar',false);}
+function novo(){ if(!confirm('Nova instalação?'))return; ['filial','responsavel','gerente','inicio','fim','obs'].forEach(id=>{const el=document.getElementById(id); if(el) el.value='';}); ['rede','energia','switches','nobreaks','roteadores','impressoras','caixas','vendas','crediario','cobranca'].forEach(id=>{document.getElementById(id).value='0';}); document.getElementById('status').value='Em andamento'; document.getElementById('rack').value='Não'; setores={geral:[],caixa:[],vendas:[],crediario:[],cobranca:[],testes:[]}; renderTodos(); limparSig(1); limparSig(2); ultimoId=null; window.scrollTo({top:0,behavior:'smooth'});}
+async function listar(){ if(!db) await abrirDB(); const tx=db.transaction('regs','readonly'); const req=tx.objectStore('regs').getAll(); req.onsuccess=()=>{const regs=req.result||[]; if(!regs.length){document.getElementById('lista').innerHTML='<div class="empty">Nenhuma salva</div>';return;} document.getElementById('lista').innerHTML=`<table><thead><tr><th>Filial</th><th>Fotos</th><th>Ass.</th><th>Ações</th></tr></thead><tbody>${regs.reverse().map(r=>`<tr><td><b style="color:#f87171">${r.filial}</b><br><small>${r.criado}</small></td><td>${r.total}</td><td>TI:${r.assinatura1?'✅':'❌'}<br>Ger:${r.assinatura2?'✅':'❌'}</td><td><button class="btn gray" onclick="carregar('${r.id}')" style="padding:8px">Abrir</button><br><button class="btn dark" onclick="verRelatorioId('${r.id}')" style="padding:8px;margin-top:4px">👁️ Ver</button></td></tr>`).join('')}</tbody></table>`;};}
+async function carregar(id){ if(!db) await abrirDB(); const tx=db.transaction('regs','readonly'); const req=tx.objectStore('regs').get(id); req.onsuccess=()=>{const r=req.result; if(!r)return; ultimoId=r.id; document.getElementById('filial').value=r.filial||''; document.getElementById('responsavel').value=r.responsavel||''; document.getElementById('gerente').value=r.gerente||''; document.getElementById('status').value=r.status||'Em andamento'; document.getElementById('inicio').value=r.inicio||''; document.getElementById('fim').value=r.fim||''; document.getElementById('rede').value=r.rede||0; document.getElementById('energia').value=r.energia||0; document.getElementById('switches').value=r.switches||0; document.getElementById('nobreaks').value=r.nobreaks||0; document.getElementById('roteadores').value=r.roteadores||0; document.getElementById('impressoras').value=r.impressoras||0; document.getElementById('rack').value=r.rack||'Não'; document.getElementById('caixas').value=r.caixas||0; document.getElementById('vendas').value=r.vendas||0; document.getElementById('crediario').value=r.crediario||0; document.getElementById('cobranca').value=r.cobranca||0; document.getElementById('obs').value=r.obs||''; setores=r.setores||{geral:[],caixa:[],vendas:[],crediario:[],cobranca:[],testes:[]}; assinatura1=r.assinatura1||null; assinatura2=r.assinatura2||null; renderTodos(); if(assinatura1){const img=new Image(); img.onload=()=>{sig1.ctx.clearRect(0,0,sig1.canvas.width,sig1.canvas.height); sig1.ctx.drawImage(img,0,0,sig1.canvas.width,sig1.canvas.height);}; img.src=assinatura1; document.getElementById('sigInfo1').textContent='✅ Carregada';} if(assinatura2){const img=new Image(); img.onload=()=>{sig2.ctx.clearRect(0,0,sig2.canvas.width,sig2.canvas.height); sig2.ctx.drawImage(img,0,0,sig2.canvas.width,sig2.canvas.height);}; img.src=assinatura2; document.getElementById('sigInfo2').textContent='✅ Carregada';} window.scrollTo({top:0,behavior:'smooth'});};}
 async function verRelatorioId(id){ if(!db)await abrirDB(); const tx=db.transaction('regs','readonly'); const req=tx.objectStore('regs').get(id); req.onsuccess=()=>{if(req.result)abrirRelatorio(req.result);}; }
 function verRelatorio(){ const filial=document.getElementById('filial').value.trim(); if(!filial){alert('Preencha filial');return;} const reg={filial, responsavel:document.getElementById('responsavel').value, gerente:document.getElementById('gerente').value, status:document.getElementById('status').value, inicio:document.getElementById('inicio').value, fim:document.getElementById('fim').value, rede:document.getElementById('rede').value, energia:document.getElementById('energia').value, switches:document.getElementById('switches').value, nobreaks:document.getElementById('nobreaks').value, roteadores:document.getElementById('roteadores').value, impressoras:document.getElementById('impressoras').value, rack:document.getElementById('rack').value, caixas:document.getElementById('caixas').value, vendas:document.getElementById('vendas').value, crediario:document.getElementById('crediario').value, cobranca:document.getElementById('cobranca').value, obs:document.getElementById('obs').value, setores, assinatura1, assinatura2}; abrirRelatorio(reg); }
 
+// PDF PROFISSIONAL - CARA DE PDF DE VERDADE
 function abrirRelatorio(r){
-  let html='';
-  const ordem=['geral','caixa','vendas','crediario','cobranca','testes'];
-  ordem.forEach(k=>{
-    const arr=(r.setores&&r.setores[k])||[]; if(!arr.length)return;
-    html+=`<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:0 auto 28px;max-width:900px">`+arr.map(m=>{
-      if(m.type&&m.type.startsWith('video')){
-        return `<div style="border:1px solid #333;border-radius:12px;overflow:hidden;background:#000"><video controls playsinline style="width:100%;height:320px;background:#000;object-fit:contain" src="${m.data}"></video></div>`;
-      } else {
-        return `<div style="border:1px solid #333;border-radius:12px;overflow:hidden;background:#000"><img src="${m.data}" style="width:100%;height:320px;object-fit:contain;background:#000"></div>`;
-      }
-    }).join('')+`</div>`;
+  const dataHoje=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+  const hora=new Date().toLocaleTimeString('pt-BR');
+  let totalFotos=0;
+  Object.values(r.setores||{}).forEach(arr=>totalFotos+=arr.length);
+
+  // Monta fotos por setor - formato documento
+  let fotosHTML='';
+  const ordem=[['geral','Geral / Rack e Cabeamento'],['caixa','Setor Caixa'],['vendas','Setor Vendas'],['crediario','Setor Crediário'],['cobranca','Setor Cobrança'],['testes','Testes e Validação de Funcionamento']];
+  let fotoNum=1;
+  ordem.forEach(([key, titulo])=>{
+    const arr=(r.setores&&r.setores[key])||[];
+    if(!arr.length) return;
+    fotosHTML+=`
+    <div class="sec">
+      <div class="sec-title"><span class="sec-num">${fotoNum===1?1:''}</span> ${titulo}</div>
+      <div class="fotos-grid">
+        ${arr.map((m,i)=>{
+          return `<div class="foto-card">
+            <img src="${m.data}">
+            <div class="foto-legenda">Foto ${fotoNum++} - ${titulo} - ${m.name}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
   });
-  if(!html) html='<p style="color:#fca5a5;text-align:center">⚠️ Nenhuma foto/vídeo</p>';
-  const doc=`<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Relatório ${r.filial}</title>
-  <style>body{margin:0;background:#0a0a0a;color:#e5e5e5;font-family:Arial,sans-serif} .top{background:linear-gradient(135deg,#000,#450a0a);padding:20px;text-align:center;border-bottom:3px solid #dc2626} .top h1{margin:0;color:#fff;font-size:18px} .top small{color:#fca5a5;display:block;margin-top:6px;font-size:12px} .content{max-width:1000px;margin:0 auto;padding:16px;text-align:center} .box{background:#141414;border:1px solid #262626;border-radius:12px;padding:14px;margin:0 auto 14px;max-width:800px;text-align:left} .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;text-align:center} .item{padding:10px;background:#0a0a0a;border:1px solid #2a2a2a;border-radius:8px;color:#d4d4d4;font-size:12px} .item b{color:#f87171;font-size:14px} .sigArea{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:800px;margin:20px auto 0} .sigCard{background:#141414;border:1px solid #333;border-radius:12px;padding:14px;text-align:center} .sigCard img{max-width:100%;background:#fffff0;padding:8px;border-radius:8px} @media(max-width:600px){.grid{grid-template-columns:1fr 1fr} .sigArea{grid-template-columns:1fr}}</style></head><body>
-  <div class="top"><h1>RELATÓRIO — ${r.filial}</h1><small>TI: ${r.responsavel||'-'} | Gerente: ${r.gerente||'-'} | ${r.inicio||'-'} até ${r.fim||'-'}</small></div>
-  <div class="content">
-    <div class="box"><div class="grid"><div class="item">Rede<br><b>${r.rede||0}</b></div><div class="item">Energia<br><b>${r.energia||0}</b></div><div class="item">Switches<br><b>${r.switches||0}</b></div><div class="item">Nobreaks<br><b>${r.nobreaks||0}</b></div><div class="item">Roteadores<br><b>${r.roteadores||0}</b></div><div class="item">Impressoras<br><b>${r.impressoras||0}</b></div><div class="item">Rack<br><b>${r.rack||'-'}</b></div><div class="item">Caixa<br><b>${r.caixas||0}</b></div><div class="item">Vendas<br><b>${r.vendas||0}</b></div><div class="item">Crediário<br><b>${r.crediario||0}</b></div><div class="item">Cobrança<br><b>${r.cobranca||0}</b></div></div></div>
-    <div class="box"><b style="color:#f87171">Obs:</b><p style="white-space:pre-wrap;color:#d4d4d4">${r.obs||'Sem'}</p></div>
-    <h2 style="color:#f87171;margin:20px 0 14px">FOTOS E VÍDEOS</h2>
-    ${html}
-    <div class="sigArea">
-      <div class="sigCard"><h3 style="color:#f87171;margin-top:0;font-size:13px">TI - Responsável</h3>${r.assinatura1?`<img src="${r.assinatura1}"><p><b>${r.responsavel||''}</b></p>`:'<p style="color:#fca5a5">❌ Sem assinatura TI</p>'}<div style="border-top:1px solid #444;width:180px;margin:10px auto"></div></div>
-      <div class="sigCard"><h3 style="color:#fca5a5;margin-top:0;font-size:13px">Gerente Regional</h3>${r.assinatura2?`<img src="${r.assinatura2}"><p><b>${r.gerente||''}</b></p>`:'<p style="color:#fca5a5">❌ Sem validação</p>'}<div style="border-top:1px solid #444;width:180px;margin:10px auto"></div></div>
+  if(!fotosHTML) fotosHTML='<div class="alert">Nenhuma foto anexada a este relatório.</div>';
+
+  const doc=`<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Relatório Técnico - ${r.filial}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+    *{box-sizing:border-box} body{margin:0;background:#fff;color:#111827;font-family:'Inter',Arial,Helvetica,sans-serif;font-size:13px;line-height:1.5}
+    .page{max-width:900px;margin:0 auto;background:#fff}
+    /* Header profissional */
+    .header{border-bottom:4px solid #dc2626;padding:28px 36px 20px;display:flex;justify-content:space-between;align-items:flex-start;background:#fff}
+    .header-left h1{margin:0;font-size:22px;font-weight:800;letter-spacing:-.5px;color:#111827;text-transform:uppercase}
+    .header-left h2{margin:4px 0 0;font-size:13px;font-weight:600;color:#dc2626;letter-spacing:2px;text-transform:uppercase}
+    .header-right{text-align:right;font-size:11px;color:#6b7280;line-height:1.6}
+    .header-right b{color:#111827}
+    .doc-id{background:#111827;color:#fff;display:inline-block;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;margin-top:8px;letter-spacing:.5px}
+    /* Capa resumo */
+    .capa{padding:28px 36px;background:#f9fafb;border-bottom:1px solid #e5e7eb}
+    .capa-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .capa-item{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px}
+    .capa-item small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:#6b7280;font-weight:700;margin-bottom:4px}
+    .capa-item b{font-size:14px;color:#111827}
+    .status-badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800;text-transform:uppercase}
+    .status-em{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+    .status-ok{background:#dcfce7;color:#166534;border:1px solid #86efac}
+    .status-plan{background:#dbeafe;color:#1e40af;border:1px solid #93c5fd}
+    /* Seções */
+    .content{padding:24px 36px}
+    .sec{margin-bottom:32px;page-break-inside:avoid}
+    .sec-title{font-size:14px;font-weight:800;color:#111827;text-transform:uppercase;letter-spacing:.5px;border-left:4px solid #dc2626;padding-left:12px;margin:0 0 14px;display:flex;align-items:center;gap:8px}
+    .sec-num{background:#dc2626;color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+    .info-table{width:100%;border-collapse:collapse;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}
+    .info-table th{width:28%;background:#f9fafb;text-align:left;padding:10px 14px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#374151;border-bottom:1px solid #e5e7eb;border-right:1px solid #e5e7eb}
+    .info-table td{padding:10px 14px;border-bottom:1px solid #e5e7eb;font-weight:600;color:#111827}
+    .info-table tr:last-child th,.info-table tr:last-child td{border-bottom:0}
+    .obs-box{background:#fffbeb;border:1px solid #fcd34d;border-left:4px solid #f59e0b;border-radius:8px;padding:16px;font-size:13px;white-space:pre-wrap;color:#78350f}
+    /* Fotos */
+    .fotos-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .foto-card{border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;background:#fff;page-break-inside:avoid}
+    .foto-card img{width:100%;height:280px;object-fit:contain;background:#f9fafb;display:block}
+    .foto-legenda{padding:8px 10px;font-size:10px;color:#6b7280;background:#f9fafb;border-top:1px solid #e5e7eb;text-align:center}
+    .alert{padding:18px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;color:#991b1b;text-align:center}
+    /* Assinaturas */
+    .ass-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px}
+    .ass-card{border:1px solid #e5e7eb;border-radius:10px;padding:16px;text-align:center;background:#fff;page-break-inside:avoid}
+    .ass-card h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#374151}
+    .ass-card img{max-width:100%;height:120px;object-fit:contain;background:#fff;display:block;margin:0 auto 10px;border:1px dashed #d1d5db;border-radius:6px;padding:6px}
+    .ass-line{border-top:1px solid #111827;width:80%;margin:12px auto 6px}
+    .ass-card small{font-size:10px;color:#6b7280;text-transform:uppercase;letter-spacing:.5px}
+    .ass-card b{font-size:13px}
+    .no-ass{padding:30px;color:#991b1b;background:#fef2f2;border:1px dashed #fecaca;border-radius:8px;font-size:12px}
+    /* Footer */
+    .footer{margin-top:40px;padding:16px 36px;border-top:2px solid #111827;display:flex;justify-content:space-between;font-size:10px;color:#6b7280;background:#fff}
+    .footer b{color:#111827}
+    /* Print */
+    @media print{
+      body{background:#fff}
+      .no-print{display:none!important}
+      .page{max-width:100%;margin:0}
+      .foto-card img{height:260px}
+      @page{margin:15mm 12mm}
+    }
+    @media(max-width:700px){
+      .header{flex-direction:column;gap:12px;padding:18px 16px}
+      .content{padding:16px}
+      .capa{padding:16px}
+      .capa-grid{grid-template-columns:1fr}
+      .fotos-grid{grid-template-columns:1fr}
+      .ass-grid{grid-template-columns:1fr}
+    }
+  </style></head><body>
+  <div class="page">
+    <div class="header">
+      <div class="header-left">
+        <h1>Relatório Técnico de Instalação</h1>
+        <h2>Infraestrutura de TI • Filial ${esc(r.filial)}</h2>
+        <div class="doc-id">DOC: TI-INFRA-${esc(r.filial)}-${new Date().getFullYear()}</div>
+      </div>
+      <div class="header-right">
+        <div><b>Data do relatório:</b> ${dataHoje} às ${hora}</div>
+        <div><b>Total de fotos:</b> ${totalFotos} imagens</div>
+        <div><b>Páginas:</b> Estimado 3-5 páginas</div>
+        <div style="margin-top:6px"><span class="status-badge ${r.status==='Concluída'?'status-ok':r.status==='Planejamento'?'status-plan':'status-em'}">${esc(r.status||'Em andamento')}</span></div>
+      </div>
     </div>
-    <button onclick="window.print()" style="margin-top:24px;padding:16px 28px;background:#dc2626;color:#fff;border:0;border-radius:12px;font-weight:800;font-size:16px">🖨️ Imprimir / PDF</button>
-  </div></body></html>`;
-  const w=window.open('','_blank'); w.document.write(doc); w.document.close();
+
+    <div class="capa">
+      <div class="capa-grid">
+        <div class="capa-item"><small>Filial / Código</small><b>${esc(r.filial)}</b></div>
+        <div class="capa-item"><small>Período de execução</small><b>${esc(r.inicio||'-')} até ${esc(r.fim||'Concluída')}</b></div>
+        <div class="capa-item"><small>Responsável técnico (TI)</small><b>${esc(r.responsavel||'-')}</b></div>
+        <div class="capa-item"><small>Gerente Regional (Validação)</small><b>${esc(r.gerente||'-')}</b></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="sec">
+        <div class="sec-title"><span class="sec-num">1</span> Identificação e Escopo</div>
+        <table class="info-table">
+          <tr><th>Filial</th><td>${esc(r.filial)}</td></tr>
+          <tr><th>Responsável Técnico</th><td>${esc(r.responsavel||'-')}</td></tr>
+          <tr><th>Gerente Regional Validador</th><td>${esc(r.gerente||'-')}</td></tr>
+          <tr><th>Período</th><td>${esc(r.inicio||'-')} a ${esc(r.fim||'-')}</td></tr>
+          <tr><th>Status da instalação</th><td>${esc(r.status||'-')}</td></tr>
+        </table>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title"><span class="sec-num">2</span> Infraestrutura Instalada</div>
+        <table class="info-table">
+          <tr><th>Pontos de rede estruturada</th><td>${esc(r.rede||0)} ponto(s)</td></tr>
+          <tr><th>Pontos de energia / tomadas</th><td>${esc(r.energia||0)} ponto(s)</td></tr>
+          <tr><th>Switches instalados</th><td>${esc(r.switches||0)} unidade(s)</td></tr>
+          <tr><th>Nobreaks instalados</th><td>${esc(r.nobreaks||0)} unidade(s)</td></tr>
+          <tr><th>Roteadores / Access Points</th><td>${esc(r.roteadores||0)} unidade(s)</td></tr>
+          <tr><th>Impressoras instaladas / configuradas</th><td>${esc(r.impressoras||0)} unidade(s)</td></tr>
+          <tr><th>Rack / Hack</th><td>${esc(r.rack||'Não')}</td></tr>
+        </table>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title"><span class="sec-num">3</span> Quantitativo por Setor</div>
+        <table class="info-table">
+          <tr><th>Setor Caixa</th><td>${esc(r.caixas||0)} estação(ões)</td></tr>
+          <tr><th>Setor Vendas</th><td>${esc(r.vendas||0)} estação(ões)</td></tr>
+          <tr><th>Setor Crediário</th><td>${esc(r.crediario||0)} estação(ões)</td></tr>
+          <tr><th>Setor Cobrança</th><td>${esc(r.cobranca||0)} estação(ões)</td></tr>
+          <tr><th>Total de estações</th><td><b>${Number(r.caixas||0)+Number(r.vendas||0)+Number(r.crediario||0)+Number(r.cobranca||0)} estações</b></td></tr>
+        </table>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title"><span class="sec-num">4</span> Observações Técnicas e Testes</div>
+        <div class="obs-box">${esc(r.obs||'Nenhuma observação registrada.')}</div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title"><span class="sec-num">5</span> Registro Fotográfico - Evidências da Instalação</div>
+        <p style="font-size:11px;color:#6b7280;margin:-6px 0 14px">Fotos centralizadas, numeradas e organizadas por setor. Total de ${totalFotos} foto(s) anexadas.</p>
+        ${fotosHTML}
+      </div>
+
+      <div class="sec">
+        <div class="sec-title"><span class="sec-num">6</span> Validação e Assinaturas</div>
+        <p style="font-size:11px;color:#6b7280;margin:-6px 0 14px">Este relatório só é considerado válido com as duas assinaturas abaixo.</p>
+        <div class="ass-grid">
+          <div class="ass-card">
+            <h4>Responsável Técnico - TI</h4>
+            ${r.assinatura1?`<img src="${r.assinatura1}"><div class="ass-line"></div><b>${esc(r.responsavel||'Responsável TI')}</b><br><small>Assinatura eletrônica coletada via app em ${dataHoje}</small>`:`<div class="no-ass">Aguardando assinatura do responsável técnico</div>`}
+          </div>
+          <div class="ass-card">
+            <h4>Gerente Regional - Validação</h4>
+            ${r.assinatura2?`<img src="${r.assinatura2}"><div class="ass-line"></div><b>${esc(r.gerente||'Gerente Regional')}</b><br><small>Validação e aceite da instalação em ${dataHoje}</small>`:`<div class="no-ass">Aguardando validação do Gerente Regional</div>`}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <div><b>TI INFRA</b> • Relatório gerado automaticamente via App TI Infra • Documento controlado</div>
+      <div>DOC: TI-INFRA-${esc(r.filial)} • ${dataHoje} ${hora} • ${totalFotos} foto(s)</div>
+    </div>
+
+    <div class="no-print" style="padding:0 36px 28px;text-align:center">
+      <button onclick="window.print()" style="padding:16px 32px;background:#111827;color:#fff;border:0;border-radius:10px;font-weight:800;font-size:14px;cursor:pointer;letter-spacing:.3px">🖨️ Imprimir / Salvar em PDF Profissional</button>
+      <p style="font-size:11px;color:#6b7280;margin-top:10px">No celular: Compartilhar > Imprimir > Salvar como PDF. As fotos sairão em alta qualidade e centralizadas.</p>
+    </div>
+
+  </div>
+  </body></html>`;
+
+  const w=window.open('','_blank');
+  w.document.write(doc);
+  w.document.close();
 }
+
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+
 function baixarHTML(){
+  // Baixa o mesmo PDF profissional como HTML para enviar
   const filial=document.getElementById('filial').value.trim()||'instalacao';
-  const r={filial, responsavel:document.getElementById('responsavel').value, gerente:document.getElementById('gerente').value, rede:document.getElementById('rede').value, energia:document.getElementById('energia').value, switches:document.getElementById('switches').value, nobreaks:document.getElementById('nobreaks').value, roteadores:document.getElementById('roteadores').value, impressoras:document.getElementById('impressoras').value, setores, assinatura1, assinatura2};
-  let html=''; Object.keys(r.setores||{}).forEach(k=>{const arr=r.setores[k]||[]; if(!arr.length)return; html+=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">`+arr.map(m=>{if(m.type&&m.type.startsWith('video'))return `<video controls src="${m.data}" style="width:100%;height:300px;background:#000"></video>`; else return `<img src="${m.data}" style="width:100%;height:300px;object-fit:contain;background:#000">`;}).join('')+`</div>`;});
-  const doc=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${filial}</title></head><body style="background:#0a0a0a;color:#fff;font-family:Arial;padding:16px;text-align:center"><h1>${filial} - TI:${r.responsavel} - Gerente:${r.gerente}</h1><p>Rede:${r.rede} Energia:${r.energia} Switch:${r.switches} Nobreak:${r.nobreaks} Roteadores:${r.roteadores} Impressoras:${r.impressoras}</p>${html}<div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap"><div>${r.assinatura1?`<img src="${r.assinatura1}" style="max-width:300px;background:#fffff0;padding:8px">`:''}<p>${r.responsavel}</p></div><div>${r.assinatura2?`<img src="${r.assinatura2}" style="max-width:300px;background:#fffff0;padding:8px">`:''}<p>${r.gerente}</p></div></div></body></html>`;
-  const blob=new Blob([doc],{type:'text/html'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`relatorio-${filial}-MOBILE.html`; a.click();
+  const r={filial, responsavel:document.getElementById('responsavel').value, gerente:document.getElementById('gerente').value, status:document.getElementById('status').value, inicio:document.getElementById('inicio').value, fim:document.getElementById('fim').value, rede:document.getElementById('rede').value, energia:document.getElementById('energia').value, switches:document.getElementById('switches').value, nobreaks:document.getElementById('nobreaks').value, roteadores:document.getElementById('roteadores').value, impressoras:document.getElementById('impressoras').value, rack:document.getElementById('rack').value, caixas:document.getElementById('caixas').value, vendas:document.getElementById('vendas').value, crediario:document.getElementById('crediario').value, cobranca:document.getElementById('cobranca').value, obs:document.getElementById('obs').value, setores, assinatura1, assinatura2};
+  abrirRelatorio(r);
 }
 </script>
 </body>
